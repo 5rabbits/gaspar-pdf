@@ -1,6 +1,8 @@
 # Gaspar
 
-Parses PDF tables into HTML / Json / Xml / CSV files without losing text. This gem uses pdf-table-extract to do the conversion.
+Parses PDF tables into HTML / Json / Xml / CSV files without losing data. This gem uses  [pdf-table-extract](https://github.com/ashima/pdf-table-extract).
+
+![Hay PDF, Hay Tabla](https://cloud.githubusercontent.com/assets/445798/17439517/82155610-5af6-11e6-9a3e-cfb0a019b1a1.jpg)
 
 ## Installation
 
@@ -35,6 +37,8 @@ Gaspar.parse('document.pdf', 'document.html', {
 # format -  the type of output: [cells_csv,cells_json,cells_xml,table_csv,table_html,table_chtml,table_list]
 
 ```
+
+Inspired by [Kristin](https://github.com/ricn/kristin)
 
 ## Contributing
 
