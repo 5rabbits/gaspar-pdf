@@ -2,6 +2,8 @@
 
 Convert PDF tables into HTML / Json / Xml / CSV files without losing text. This gem uses pdf-table-extract to do the conversion.
 
+![Hay PDF, Hay Tabla](https://cloud.githubusercontent.com/assets/445798/17439517/82155610-5af6-11e6-9a3e-cfb0a019b1a1.jpg)
+
 ## Installation
 
 Add this line to your application's Gemfile:
