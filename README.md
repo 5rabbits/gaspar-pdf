@@ -1,6 +1,6 @@
 # Gaspar
 
-Convert PDF tables into HTML / Json / Xml / CSV files without losing text. This gem uses pdf-table-extract to do the conversion.
+Parses PDF tables into HTML / Json / Xml / CSV files without losing text. This gem uses pdf-table-extract to do the conversion.
 
 ## Installation
 
@@ -23,10 +23,12 @@ You need to install [pdf-table-extract](https://github.com/5rabbits/pdf-table-ex
 ```ruby
 require 'gaspar'
 
-# Converts document.pdf to document.html
-# This requires that the pdf2htmlEX command is present in your PATH.
+# Parse document.pdf to document.html
+# This requires that the pdf-table-extract command is present in your PATH.
 
-Gaspar.convert('document.pdf', 'document.html', { page: 1, format: 'cells_json'})
+Gaspar.parse('document.pdf', 'document.html', {
+  page: 1, format: 'table_html'
+})
 
 # Available options:
 # page - page to parse

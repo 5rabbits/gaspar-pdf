@@ -2,7 +2,7 @@ require 'gaspar'
 require 'nokogiri'
 require 'tmpdir'
 
-def file_path( *paths )
+def file_path(*paths)
   File.expand_path(File.join(File.dirname(__FILE__), 'fixtures', *paths))
 end
 
