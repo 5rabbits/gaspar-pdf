@@ -6,8 +6,8 @@ require 'gaspar/version'
 Gem::Specification.new do |spec|
   spec.name          = 'gaspar'
   spec.version       = Gaspar::VERSION
-  spec.authors       = ['5rabbits']
-  spec.email         = ['info@5rabbits.com']
+  spec.authors       = ['5rabbits', 'Abraham Barrera']
+  spec.email         = ['abarrerac@gmail.com']
   spec.description   = 'Parses PDF tables into HTML, JSON, XML and more.'
   spec.summary       = 'Parses PDF tables into HTML, JSON, XML and more.'
   spec.homepage      = 'https://github.com/5rabbits/gaspar'
