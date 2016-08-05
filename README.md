@@ -36,6 +36,8 @@ Gaspar.convert('document.pdf', 'document.html', { page: 1, format: 'cells_json'}
 
 ```
 
+Inspired by [Kristin](https://github.com/ricn/kristin)
+
 ## Contributing
 
 1. Fork it
