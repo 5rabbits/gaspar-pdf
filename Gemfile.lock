@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gaspar (0.0.1)
+    gaspar-pdf (0.0.1)
       pdf-reader
       spoon
 
@@ -48,7 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler
-  gaspar!
+  gaspar-pdf!
   nokogiri
   rake
   rspec

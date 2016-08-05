@@ -1,4 +1,4 @@
-# Gaspar
+# Gaspar PDF
 
 Parses PDF tables into HTML / Json / Xml / CSV files without losing data. This gem uses  [pdf-table-extract](https://github.com/ashima/pdf-table-extract).
 
@@ -8,7 +8,7 @@ Parses PDF tables into HTML / Json / Xml / CSV files without losing data. This g
 
 Add this line to your application's Gemfile:
 
-    gem 'gaspar'
+    gem 'gaspar-pdf'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install gaspar
+    $ gem install gaspar-pdf
 
 ## Usage
 
