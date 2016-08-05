@@ -29,13 +29,18 @@ require 'gaspar'
 # This requires that the pdf-table-extract command is present in your PATH.
 
 Gaspar.parse('document.pdf', 'document.html', {
-  page: 1, format: 'table_html'
+  format: 'table_html'
 })
 
 # Available options:
 # page - page to parse
 # format -  the type of output: [cells_csv,cells_json,cells_xml,table_csv,table_html,table_chtml,table_list]
 
+content = Gaspar.parse_with_content('document.pdf', 'document.html', {
+  format: 'table_html'
+})
+
+# you can get parsed content
 ```
 
 Inspired by [Kristin](https://github.com/ricn/kristin)
