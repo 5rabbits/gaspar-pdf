@@ -70,7 +70,7 @@ module Gaspar
       @source = source
       @target = target
       @pages = pages
-      @options = options
+      @options = options.empty? ? format_from_target(target) : options
     end
 
     def extract
@@ -104,6 +104,23 @@ module Gaspar
       opts.join(' ')
     end
 
+    def format_from_target(target)
+      ext_key = target_extension(target)
+      { format: default_formats[ext_key] }
+    end
+
+    def target_extension(target)
+      target.split('.').last.to_sym
+    end
+
+    def default_formats
+      {
+        :json => 'cells_json',
+        :xml  => 'cells_xml',
+        :html => 'table_html',
+        :csv  => 'table_csv'
+      }
+    end
     def command_available?
       extract_command
     end
