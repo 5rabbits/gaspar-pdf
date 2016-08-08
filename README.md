@@ -40,6 +40,15 @@ content = Gaspar.parse_with_content('document.pdf', 'document.html', {
   format: 'table_html'
 })
 
+# if format is not given, the file will be parsed with the target extension
+# json --> cells_json
+# xml --> cells_xml
+# csv --> table_csv
+# html --> table_html
+# the output file will be cells_xml for no known formats
+
+
+
 # you can get parsed content
 ```
 
