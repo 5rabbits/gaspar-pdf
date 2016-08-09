@@ -28,19 +28,12 @@ require 'gaspar'
 # Parse document.pdf to document.html
 # This requires that the pdf-table-extract command is present in your PATH.
 
-Gaspar.parse('document.pdf', 'document.html', {
-  format: 'table_html'
-})
+content = Gaspar.parse(source: 'document.pdf',
+                       target: 'document.html',
+                       as: :html)
 
-# Available options:
-# page - page to parse
-# format -  the type of output: [cells_csv,cells_json,cells_xml,table_csv,table_html,table_chtml,table_list]
-
-content = Gaspar.parse_with_content('document.pdf', 'document.html', {
-  format: 'table_html'
-})
-
-# you can get parsed content
+# target is optional
+# Available types: :html, :json, :xml, :csv
 ```
 
 Inspired by [Kristin](https://github.com/ricn/kristin)

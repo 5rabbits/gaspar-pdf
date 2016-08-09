@@ -9,30 +9,46 @@ module Gaspar
   # Parser
   # This class parses a PDF into a machine-readable format
   class Parser
-    def initialize(source, target, options = {})
-      @source = source
-      @target = target
+    def initialize(source:, as: :html, target: nil, options: {})
+      @source = determine_source(source)
+      @type = determine_type(as)
+      @target = determine_target(target, @type)
       @options = options
       @extractor = extractor
     end
 
     def parse
       @extractor.extract
-    end
-
-    def parse_with_content
-      @extractor.extract
       @extractor.content
     end
 
     private
 
+    def default_types
+      {
+        json: 'cells_json',
+        xml: 'cells_xml',
+        html: 'table_html',
+        csv: 'table_csv'
+      }
+    end
+
+    def determine_type(type)
+      default_types[type]
+    end
+
+    def determine_target(target, type)
+      return target if target
+
+      path = Dir.tmpdir.to_s
+      "#{path}/output_#{type}"
+    end
+
     def extractor
-      src = determine_source(@source)
-      pdf = Reader.new(src)
+      page_count = Reader.new(@source).page_count
 
       Extractor.new(
-        src, @target, pdf.page_count, @options
+        @source, @target, page_count, @type, @options
       )
     end
 
@@ -66,10 +82,11 @@ module Gaspar
 
   # Extract data from all pages of PDF
   class Extractor
-    def initialize(source, target, pages, options)
+    def initialize(source, target, pages, type, options)
       @source = source
       @target = target
       @pages = pages
+      @type = type
       @options = options
     end
 
@@ -99,7 +116,7 @@ module Gaspar
       @pages.times do |p|
         opts.push("-p #{p + 1}")
       end
-      opts.push("-t #{@options[:format]}") if @options[:format]
+      opts.push("-t #{@type}")
 
       opts.join(' ')
     end
@@ -147,11 +164,10 @@ module Gaspar
     end
   end
 
-  def self.parse(source, target, options = {})
-    Parser.new(source, target, options).parse
-  end
-
-  def self.parse_with_content(source, target, options = {})
-    Parser.new(source, target, options).parse_with_content
+  def self.parse(source:, as: :html, target: nil, options: {})
+    Parser.new(source: source,
+               as: as,
+               target: target,
+               options: options).parse
   end
 end
